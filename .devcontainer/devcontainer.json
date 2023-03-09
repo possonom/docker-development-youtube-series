@@ -4,15 +4,19 @@
     "name": "kubernetes-tutorial-basic",
     "build": {
       "dockerfile": "dockerfile",
-      "args": { "KIND_VERSION": "0.14.0" }
+      "args": { "KIND_VERSION": "0.17.0" }
     },
     "mounts": ["type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock"],
-  
-    // Set *default* container specific settings.json values on container create.
-    "settings": {
-      "terminal.integrated.profiles.linux":  {"bash": {"path": "/bin/bash"}}
-    },
-  
+    "customizations": {
+      // Configure properties specific to VS Code.
+      "vscode": {
+        // Set *default* container specific settings.json values on container create.
+        "settings": {
+          "terminal.integrated.profiles.linux":  {"bash": {"path": "/bin/bash"}}
+        },
+        "extensions": []
+      }
+  },  
     // Add the IDs of extensions you want installed when the container is created.
     // "extensions": [
     //   "dbaeumer.vscode-eslint"
